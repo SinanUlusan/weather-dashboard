@@ -130,6 +130,16 @@ export interface UvIndexData {
   date_iso: string;
   date: number;
   value: number;
+  daily: {
+    uv_index_max: Array<{
+      value: number;
+      date: number;
+    }>;
+    uv_index_clear_sky_max: Array<{
+      value: number;
+      date: number;
+    }>;
+  };
 }
 
 export type UnitSystem = "metric" | "imperial";

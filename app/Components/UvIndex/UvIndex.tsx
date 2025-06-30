@@ -18,7 +18,15 @@ function UvIndex() {
   const { daily } = uvIndex;
   const { uv_index_clear_sky_max, uv_index_max } = daily;
 
-  const uvIndexMax = uv_index_max[0].toFixed(0);
+  // Handle both possible data structures
+  const uvIndexValue =
+    Array.isArray(uv_index_max) && uv_index_max.length > 0
+      ? typeof uv_index_max[0] === "number"
+        ? uv_index_max[0]
+        : uv_index_max[0].value
+      : 0;
+
+  const uvIndexMax = uvIndexValue.toFixed(0);
 
   const uvIndexCategory = (uvIndex: number) => {
     if (uvIndex <= 2) {
@@ -54,7 +62,7 @@ function UvIndex() {
     }
   };
 
-  const marginLeftPercentage = (uvIndexMax / 14) * 100;
+  const marginLeftPercentage = (Number(uvIndexMax) / 14) * 100;
 
   return (
     <div className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey/80 bg-white/80 backdrop-blur-sm shadow-sm dark:shadow-none">
@@ -66,7 +74,7 @@ function UvIndex() {
           <p className="text-2xl">
             {uvIndexMax}
             <span className="text-sm">
-              ({uvIndexCategory(uvIndexMax).text})
+              ({uvIndexCategory(Number(uvIndexMax)).text})
             </span>
           </p>
 
@@ -78,7 +86,9 @@ function UvIndex() {
         </div>
       </div>
 
-      <p className="text-sm">{uvIndexCategory(uvIndexMax).protection} </p>
+      <p className="text-sm">
+        {uvIndexCategory(Number(uvIndexMax)).protection}{" "}
+      </p>
     </div>
   );
 }
