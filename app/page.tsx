@@ -204,7 +204,7 @@ export default function Home() {
 
         <footer className="py-4 flex justify-center pb-8">
           <p className="footer-text text-sm flex items-center gap-1">
-            {t("poweredBy")}&nbsp;
+            Powered by&nbsp;
             <img
               src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
               alt="logo"
@@ -223,7 +223,7 @@ export default function Home() {
               target="_blank"
               className="text-sky-300 font-bold"
             >
-              &nbsp;{t("developedBy")} Sinan Ulusan
+              &nbsp;Developed by Sinan Ulusan
             </a>
           </p>
         </footer>
