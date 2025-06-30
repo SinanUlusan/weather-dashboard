@@ -405,9 +405,8 @@ OPENWEATHERMAP_API_KEY=your_api_key_here
 
 ### Vercel Deployment (Recommended)
 
-1. **Connect Repository**: Link your GitHub repository to Vercel
-2. **Set Environment Variables**: Add your OpenWeatherMap API key
-3. **Deploy**: Vercel automatically builds and deploys on every push
+**Live Demo**: [https://weather-dashboard-sinan.vercel.app/](https://weather-dashboard-sinan.vercel.app/)
+
 
 ### Other Deployment Options
 
